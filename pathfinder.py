@@ -1,8 +1,18 @@
 from PIL import Image
 
 
+class Read:
+    """First read the elevation file
+    Then turn the file into a list"""
+
+
+
 
 class Map:
+    """
+    Turn each number is elevation list into coordinates with a color for each coordinate
+    Then transform those color coordinates to grayscale
+    """
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -24,6 +34,12 @@ class Map:
                         elevation_test = image.putpixel((x,y), (num, num, num))
                         map.save("elevation.png")
                         open "elevation.png"
+
+class Chart:
+    """first, find the lowest coordinate on the left. 
+    Then find the coordinates to the right that are touching. 
+    Then find the coordinate with the smallest absolute value.""" 
+
                        
                 # elevation_test.append([num])
              
