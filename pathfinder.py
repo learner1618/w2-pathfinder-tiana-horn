@@ -38,33 +38,29 @@ class Map:
         self.width = width
         self.height = height
         self.image = Image.new("RGB", (width, height))
+       
+        with open("elevation_small.txt") as data:
+            self.matrix = [[int(x) for x in line.split()] for line in data]        
+
+
+
 
     def save(self, filename):
         self.image.save(filename)
         
-
-
     def draw_point(self, coords, color):
         self.image.putpixel(coords, color)
 
-    def map_from_file(self,filename):
-        # elevation_test = []
-        with open("elevation_small.txt") as data:
-            # line = data.readlines()
-            # row = [int(row) for row in line]
-            # for line in data:
-                
 
-            matrix = [[int(x) for x in line.split()] for line in data]
-            for y, row in enumerate(matrix): 
+    def map_from_file(self,filename):
+            for y, row in enumerate(self.matrix): 
                 for x, num in enumerate(row):
-                    # row = float(row)
-                #    point =  row / 
                     self.image.putpixel((x,y), (255, 0, 0))
             return self
-"""
-how to change str to int
-"""
+
+    # def find_highest_elevation(self,): 
+    #     map_from_file()
+    #     max_point = max(matrix)
     # def map_from_file(self, filename):
         
             
@@ -105,13 +101,11 @@ if __name__=="__main__":
 
     # print(Map(600,600))
     my_map = Map(600,600) 
- 
     my_map = my_map.map_from_file("elevation_small.txt")
-  
     # map = map.draw_point()
     # breakpoint()
-    my_map.save("duke.png")
-    my_map.image.show("duke.png")
+    my_map.save("elevation.png")
+    my_map.image.show("elevation.png")
 
 
 
