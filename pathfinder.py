@@ -3,33 +3,50 @@ from PIL import Image
 
 
 class Map:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
-        
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
     def save(self, filename):
-        self.img.save(filename)
+        self.image.save(filename)
 
-    def draw_point(coords, color):
-        self.img.putpixel(coords, color)
+    def draw_point(self, coords, color):
+        self.image.putpixel(coords, color)
 
-    def map_from_file(filename):
-        lowest_elevation = []
-        highest_elevation = [] 
-        with open("elevation_small.txt") as elevation_file:
-            line = elevation_file.readline().strip()
-            elevation = line.split(" ")
-            for num in elevation:
-                if num is min:
-                    lowest_elevation.append(num)
-                    
-            print(elevation)
+    def map_from_file(self,filename):
+        elevation_map = [[]]
+        elevation_test = [[]]
+        with open("elevation_small.txt") as data:
+            for line in data.readlines():
+                elevation_map.append(line) 
+                for y, row in enumerate(elevation_map):
+                    for x, num in enumerate(row):
+                        elevation_test = image.putpixel((x,y), (num, num, num))
+                        map.save("elevation.png")
+                        open "elevation.png"
+                       
+                # elevation_test.append([num])
+             
 
-if __name__=="__main__":
+        # print(elevation.png)
 
-# print(map_from_file("elevation_small.txt"))
+# class Grayscale:
+#     def__init__(self, highest, lowest):
 
-# print(Map(map_from_file("elevation_small.txt")))  
-     map = Map(90,90)
-     map.save("elevation.png")
+#     for y, row in enumerate(data):
+# 	    for x, num in enumerate(row):
+# 		   
+
+
+# class Best_Path:
+#     pass
+    
+
+
+# if __name__=="__main__":
+
+#     print(Map(90,90))
+
+    # print(Map(map_from_file("elevation_small.txt")))  
+    # map = Map(90,90)
+    # map.save("elevation.png")
