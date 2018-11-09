@@ -1,27 +1,16 @@
 from PIL import Image
  
-w = 5
-h = 3
+
 
 # class Read:
-def read_file():
-    with open("elevation_small.txt") as data:
-        for line in data:
-            Matrix = [int(num) for num in line.split()]
-            # for line in data.readlines():
-            # elevation_map.append(Matrix)
-    #     elevation_map.append(line)
-    #     w = len(line)
-    #     h = len(line)
-    # for i in elevation_map:
-    #     Matrix = [[i for x in range(w)] for y in range(h)]
-    #     print(Matrix)
-        # Matrix.image.putpixel(x,y)(255, 0, 0)
-       # print(Matrix)
-    #    print(elevation_map[5:])
-            print(Matrix)
+#     def read_file():
+#         with open("elevation_small.txt") as data:
+#             for line in data:
+#                  Matrix = [int(num) for num in line.split()]
+            
+#                  print(Matrix)
 
-read_file()
+# read_file()
 
 # 
 
@@ -40,27 +29,51 @@ read_file()
 #                 elevation_map.append(line) 
 
 
-# class Map:
-#     """
-#     Turn each number is elevation list into coordinates with a color for each coordinate
-#     Then transform those color coordinates to grayscale
-#     """
-#     def __init__(self, w, h):
-#         self.w = w
-#         self.h = h
+class Map:
+    """
+    Turn each number is elevation list into coordinates with a color for each coordinate
+    Then transform those color coordinates to grayscale
+    """
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+        self.image = Image.new("RGB", (width, height))
 
-#     def save(self, filename):
-#         self.image.save(filename)
+    def save(self, filename):
+        self.image.save(filename)
+        
 
-#     def draw_point(self, coords, color):
-#         self.image.putpixel(coords, color)
 
-#     def map_from_file(self,filename):
-#         elevation_test = []
-#         for y, row in enumerate(elevation_map):
-#                 for x, num in enumerate(row):
-#                     elevation_test = image.putpixel((x,y), (num, num, num))
-#                     map.save("elevation.png")
+    def draw_point(self, coords, color):
+        self.image.putpixel(coords, color)
+
+    def map_from_file(self,filename):
+        # elevation_test = []
+        with open("elevation_small.txt") as data:
+            # line = data.readlines()
+            # row = [int(row) for row in line]
+            # for line in data:
+                
+
+            matrix = [[int(x) for x in line.split()] for line in data]
+            for y, row in enumerate(matrix): 
+                for x, num in enumerate(row):
+                    # row = float(row)
+                #    point =  row / 
+                    self.image.putpixel((x,y), (255, 0, 0))
+            return self
+"""
+how to change str to int
+"""
+    # def map_from_file(self, filename):
+        
+            
+                    # map.save("elevation.png")
+
+    # def read_file():
+    #     with open("elevation_small.txt") as data:
+    #         for line in data:
+    #              Matrix = [int(num) for num in line.split()]
                        
 
 # class Chart:
@@ -87,10 +100,32 @@ read_file()
     
 
 
-# if __name__=="__main__":
 
-#     print(Map(90,90))
+if __name__=="__main__":
 
-    # print(Map(map_from_file("elevation_small.txt")))  
-    # map = Map(90,90)
-    # map.save("elevation.png")
+    # print(Map(600,600))
+    my_map = Map(600,600) 
+ 
+    my_map = my_map.map_from_file("elevation_small.txt")
+  
+    # map = map.draw_point()
+    # breakpoint()
+    my_map.save("duke.png")
+    my_map.image.show("duke.png")
+
+
+
+
+# -----------
+# stuff that probably isn't right but I don't want to delete
+# for line in data.readlines():
+            # elevation_map.append(Matrix)
+    #     elevation_map.append(line)
+    #     w = len(line)
+    #     h = len(line)
+    # for i in elevation_map:
+    #     Matrix = [[i for x in range(w)] for y in range(h)]
+    #     print(Matrix)
+        # Matrix.image.putpixel(x,y)(255, 0, 0)
+       # print(Matrix)
+    #    print(elevation_map[5:])
