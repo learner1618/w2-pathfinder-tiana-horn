@@ -43,7 +43,8 @@ class Map:
                 for x, num in enumerate(row):
                     for i in range(500):
                         cand = [abs(((self.matrix[x][i])-(self.matrix[x+1][i+1]))), abs(((self.matrix[x][i])-(self.matrix[x+1][i]))), abs(((self.matrix[x][i])-(self.matrix[x+1][i-1])))]
-                        print(cand)
+                        best = min(cand)
+                        print(cand, best)
                         # if abs(((self.matrix[x][i])-(self.matrix[x][i+1]))) < abs(((self.matrix[x][i])-(self.matrix[x][i+1]))):
                         #     # print(self.matrix[x][i])
                         #     print("It's lit")
