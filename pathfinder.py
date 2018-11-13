@@ -37,11 +37,21 @@ class Map:
         return self
 
     def find_path(self):
-        curr_x = 0
-        curr_y = 77
+        
         for y, row in enumerate(self.matrix): 
             for x, num in enumerate(row):
-                self.image.putpixel((x,curr_y), (255, 0, 0))
+                curr_y = 10
+                
+                # candidates = [(x + 1, abs(curr_y - 1)), (x + 1, abs(curr_y)), (x + 1, abs(curr_y + 1))]
+                candidates = [min(n) for n in ([((self.matrix[curr_y - 1])), ((self.matrix[curr_y])), ((self.matrix[curr_y + 1]))])]
+                new_y = min(candidates)
+                print(new_y)
+            # for min in candidates:
+            #     print(num)
+                #     # curr_y = min
+                    # curr_pos = (x, min)
+                # curr_y = min(abs(num[curr_y]), abs(num[curr_y - 1]), abs(num[curr_y + 1]))
+                    # self.image.putpixel((curr_pos), (255, 0, 0))
         return self
             
 
