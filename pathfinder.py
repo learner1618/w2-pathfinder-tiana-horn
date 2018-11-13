@@ -37,18 +37,27 @@ class Map:
         return self
 
     def find_path(self):
-        for y, row in enumerate(self.matrix): 
-            for x, num in enumerate(row):
-            
-                curr_y = y
-                # while curr_y < 500:
+ 
+            for y, row in enumerate(self.matrix): 
+
+                for x, num in enumerate(row):
+                    for i in range(500):
+                        cand = abs(((self.matrix[x][i])-(self.matrix[x][i+1])))
+                        print(cand)
+                        # if abs(((self.matrix[x][i])-(self.matrix[x][i+1]))) < abs(((self.matrix[x][i])-(self.matrix[x][i+1]))):
+                        #     # print(self.matrix[x][i])
+                        #     print("It's lit")
+                    # while y < 500:
+                    #     curr_y = y
+              
                
-                candidates = [min(n) for n in ([((self.matrix[curr_y - 1])), ((self.matrix[curr_y])), ((self.matrix[curr_y + 1]))])]
-                new_y = min(candidates)
-                print(new_y)
+                    #     candidates = [min(n) for n in ([((self.matrix[curr_y - 1])), ((self.matrix[curr_y])), ((self.matrix[curr_y + 1]))])]
+                    #     new_y = min(candidates)
+                    #     print(new_y)
+
                 # while new_y < 500:
                 #     self.image.putpixel((x, new_y), (0, 0, 255))
-        return self
+            return self
                 # print(new_y)    
 
         # return self
@@ -97,7 +106,13 @@ class Map:
 
 
 #________________________________
-#        #         curr_y += 1
+#       print(self.matrix[x][y])
+
+
+                #    for i in range(500):
+                #         print(self.matrix[x][i])
+# 
+#  #         curr_y += 1
         #         for x, num in enumerate(row):
         #             curr_pos = (x, curr_y)
         #     self.image.putpixel((curr_pos), (0, 0, 255))
