@@ -30,10 +30,11 @@ class Map:
     Turn each number is elevation list into coordinates with a color for each coordinate
     Then transform those color coordinates to grayscale
     """
-    def __init__(self, width, height):
+    def __init__(self, width, height, highest_point):
         self.width = width
         self.height = height
         self.image = Image.new("RGB", (width, height))
+        self.highest_point = highest_point
        
         with open("elevation_small.txt") as data:
             self.matrix = [[int(x) for x in line.split()] for line in data]        
@@ -51,7 +52,8 @@ class Map:
     def map_from_file(self,filename):
             for y, row in enumerate(self.matrix): 
                 for x, num in enumerate(row):
-                    self.image.putpixel((x,y), (255, 0, 0))
+                    pos = int((num/self.highest_point)*255)
+                    self.image.putpixel((x,y), (pos, pos, pos))
             return self
 
     # def find_highest_elevation(self,): 
@@ -75,7 +77,7 @@ class Map:
 
 if __name__=="__main__":
     
-    my_map = Map(600,600) 
+    my_map = Map(600,600, 5648) 
     my_map = my_map.map_from_file("elevation_small.txt")
     my_map.find_highest_elevation()
     my_map.save("elevation.png")
