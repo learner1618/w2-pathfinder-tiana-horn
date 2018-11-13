@@ -37,24 +37,50 @@ class Map:
         return self
 
     def find_path(self):
-        
         for y, row in enumerate(self.matrix): 
             for x, num in enumerate(row):
-                curr_y = 10
-                
-                # candidates = [(x + 1, abs(curr_y - 1)), (x + 1, abs(curr_y)), (x + 1, abs(curr_y + 1))]
+            
+                curr_y = y
+                # while curr_y < 500:
+               
                 candidates = [min(n) for n in ([((self.matrix[curr_y - 1])), ((self.matrix[curr_y])), ((self.matrix[curr_y + 1]))])]
                 new_y = min(candidates)
                 print(new_y)
-            # for min in candidates:
-            #     print(num)
-                #     # curr_y = min
-                    # curr_pos = (x, min)
-                # curr_y = min(abs(num[curr_y]), abs(num[curr_y - 1]), abs(num[curr_y + 1]))
-                    # self.image.putpixel((curr_pos), (255, 0, 0))
+                # while new_y < 500:
+                #     self.image.putpixel((x, new_y), (0, 0, 255))
         return self
-            
+                # print(new_y)    
 
+        # return self
+        # curr_y = 70
+        # for y, row in enumerate(self.matrix): 
+        #     while curr_y < 500:
+        #         # new_y = curr_y + 1
+        #         # print(new_y)
+        #     for x, num in enumerate(row):
+        #         curr_pos(x,)
+      
+        #         self.image.putpixel((x, new_y), (0, 0, 255))
+        # return self
+            
+            # candidates = [(x+1,y), (x+1,y+1), (x+1,y-1)]
+            # for i in candidates:
+            #     next_move = min(n) for n in [abs(((x,y) - (x+1,y))), abs(((x,y) - (x+1,y))), abs(((x,y) - (x+1,y)))]
+            # curr_pos = data[x][y]
+            # candidates = 
+            
+            # for y, row in enumerate(self.matrix): 
+            #     for x, num in enumerate(row):
+            #         while (x,y) < (599, 599): 
+            #             curr_y = y 
+            #             next_move = (((x,curr_y))), (( (x,curr_y+1))), (( (x,curr_y-1)))
+            #             # self.image.putpixel((x, y+1), (0, 0, 255))
+            #             print(next_move)
+
+            
+                
+            
+# once have candidates, iterate through values to calculate difference, record the index
 # class Chart:
 #     """first, find the lowest coordinate on the left. 
 #     Then find the coordinates to the right that are touching. 
@@ -68,7 +94,24 @@ class Map:
 
 # class Best_Path:
 #     pass
+
+
+#________________________________
+#        #         curr_y += 1
+        #         for x, num in enumerate(row):
+        #             curr_pos = (x, curr_y)
+        #     self.image.putpixel((curr_pos), (0, 0, 255))
+                
+
+                # candidates = [(x + 1, abs(curr_y - 1)), (x + 1, abs(curr_y)), (x + 1, abs(curr_y + 1))]
+                # print((x,y), candidates, candidates.index(new_y))
     
+        # for i in len(self.matrix):
+        #     i += 1 
+        #     print(i)
+        
+        # data[x][y]
+
 
 if __name__=="__main__":
     
